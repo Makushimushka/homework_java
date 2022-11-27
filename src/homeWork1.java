@@ -34,7 +34,7 @@ public class homeWork1 {
     //27. Remove Element
     public int removeElement(int[] nums, int val) {
         int copyInd = 0;
-        for (int i = 0; i < nums.length; i ++) {
+        for (int i = 0; i < nums.length; i++) {
             if (nums[i] != val) {
                 nums[copyInd] = nums[i];
                 copyInd++;
@@ -58,5 +58,28 @@ public class homeWork1 {
         }
 
         return sb.toString();
+    }
+
+    //125. Valid Palindrome
+    public boolean isPalindrome(String s) {
+        if (s.isEmpty()) return true;
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left < right) {
+            while (!Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
+                if (left == right) return true;
+            }
+            while (!Character.isLetterOrDigit(s.charAt(right))) right--;
+
+            if (Character.toLowerCase(s.charAt(left)) == Character.toLowerCase(s.charAt(right))) {
+                left++;
+                right--;
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 }
